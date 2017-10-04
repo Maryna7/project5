@@ -1,0 +1,199 @@
+#header{
+	padding: 20px 0;
+	text-align: center;
+
+	.container{
+		&:after{
+			@include media('<tablet') {
+				content: "";
+				display: block;
+				clear: both;
+			}
+		}
+	}
+}
+
+
+.logo-holder{
+	margin-bottom: 20px;
+	padding: 0 190px;
+
+	@include media('<tablet') {
+		padding: 0 20px 0 0;
+		float: left;
+		margin-bottom: 0;
+	}
+
+	.logo{
+		display: inline-block;
+		vertical-align: top;
+
+		&:hover{
+			opacity: .7;
+		}
+	}
+
+	img{
+		border: none;
+		vertical-align: top;
+	}
+}
+
+/**start burger menu styles**/
+
+.nav-active{
+	.links-holder{
+		@include media('<tablet') {
+			display: block;
+			visibility: visible;
+			opacity: 1;
+			padding: 45px 0 0;
+		}
+	}
+
+	.nav-opener{
+
+		&:before{
+			transform: rotate(45deg) translateY(11px);
+		}
+
+		span{
+			display: none;
+		}
+
+		&:after{
+			transform: rotate(-45deg) translateY(-11px);
+		}
+	}
+}
+
+.nav-opener{
+	display: none;
+	float: right;
+	vertical-align: top;
+	position: relative;
+	width: 25px;
+	height: 19px;
+
+	&:before,
+	&:after,
+	span{
+		content: '';
+		position: absolute;
+		height: 3px;
+		width: 100%;
+		top: 0;
+		left: 0;
+		background: $blue;
+		transition: transform .4s;
+	}
+
+	&:after{
+		top: auto;
+		bottom: 0;
+	}
+
+	@include media('<tablet') {
+		display: inline-block;
+		vertical-align: top;
+	}
+
+	span{
+		top: 8px;
+	}
+}
+
+/**end burger menu styles**/
+
+.links-holder{
+	font-size: 12px;
+	
+	@include media('<tablet') {
+		display: none;
+		visibility: hidden;
+		opacity: 0;
+		transition: visibility .4s;
+	}
+}
+
+.navbar{
+	text-transform: uppercase;
+
+	@include media('<tablet') {
+		margin-bottom: 10px;
+	}
+
+	.nav-list{
+		@extend %listreset;
+	}
+
+	li{
+		display: inline-block;
+		vertical-align: middle;
+
+		@include media('<tablet') {
+			display: block;
+			margin-bottom: 5px;
+		}
+	}
+
+	.active{
+		a{
+			color: $white;
+			background: $blue;
+			cursor: default;
+
+			&:hover{
+				opacity: .8;
+			}
+		}
+	}
+
+	a{
+		display: inline-block;
+		vertical-align: middle;
+		color: #707070;
+		padding: 3px 13px;
+		border-radius: 2px;
+		border: 1px solid transparent;
+
+		&:hover{
+			border: 1px solid $blue;
+		}
+	}
+}
+
+.social-list{
+	@extend %listreset;
+	position: absolute;
+	right: 15px;
+	top: 20px;
+	font-size: 16px;
+	line-height: 1;
+
+	@include media('<tablet') {
+		position: static;
+	}
+
+	li{
+		display: inline-block;
+		vertical-align: middle;
+		padding: 0 5px;
+
+		&:last-child{
+			padding: 0 0 0 5px;
+		}
+
+		@include media('<tablet') {
+			padding: 0 3px;
+		}
+	}
+
+	a{
+		color: #d4d4d4;
+
+		&:hover{
+			opacity: .6;
+		}
+	}
+}
