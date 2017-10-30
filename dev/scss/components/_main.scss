@@ -625,8 +625,9 @@
 .map-section{
 	padding: 15px 0 0;
 	
-	img{
-		width: 100%;
-		vertical-align: top;
+	#map {
+		height: 200px;
+		border: 1px solid #bfbfbf;
+		border-width: 1px 0;
 	}
 }
